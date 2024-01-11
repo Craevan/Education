@@ -49,3 +49,7 @@
        DeprecatedHandlerProxyConfigurator и использования Proxy Design Pattern
     2. Проблемы:
         * Ошибка, если Deprecated у класса без интерфейсов.
+7. ver 1.0
+   1. Исправлена ошибка, если Deprecated у класса без интерфейсов с использованием библиотеки CGLIB
+   2. Оставшиеся проблемы:
+      * Обработка @Deprecated у методов
