@@ -2,8 +2,8 @@ package dev.crevan.corona;
 
 public class CoronaDisinfector {
 
-    private Announcer announcer = new ConsoleAnnouncer();
-    private Policeman policeman = new PolicemanImpl();
+    private Announcer announcer = ObjectFactory.getInstance().createObject(Announcer.class);
+    private Policeman policeman = ObjectFactory.getInstance().createObject(Policeman.class);
 
     public void start(Room room) {
         // сообщить всем о начале дезинфекции
