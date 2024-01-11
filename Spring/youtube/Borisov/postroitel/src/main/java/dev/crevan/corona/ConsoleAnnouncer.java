@@ -2,7 +2,8 @@ package dev.crevan.corona;
 
 public class ConsoleAnnouncer implements Announcer {
 
-    private Recommender recommendator = ObjectFactory.getInstance().createObject(Recommender.class);
+    @InjectByType
+    private Recommender recommendator;
 
     @Override
     public void announce(final String message) {

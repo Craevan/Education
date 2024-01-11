@@ -1,5 +1,6 @@
 package dev.crevan.corona;
 
+@Singleton
 public class RecommenderImpl implements Recommender {
 
     @InjectProperty
