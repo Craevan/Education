@@ -8,11 +8,12 @@ import java.util.Set;
 
 public class JavaConfig implements Config {
 
-    @Getter
-    private Reflections scanner;
-    private Map<Class, Class> ifc2ImplClass;
+    private final Map<Class, Class> ifc2ImplClass;
 
-    public JavaConfig(String packageToScan, Map<Class, Class> ifc2ImplClass) {
+    @Getter
+    private final Reflections scanner;
+
+    public JavaConfig(final String packageToScan, final Map<Class, Class> ifc2ImplClass) {
         this.scanner = new Reflections(packageToScan);
         this.ifc2ImplClass = ifc2ImplClass;
     }

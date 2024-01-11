@@ -1,6 +1,7 @@
 package dev.crevan.corona;
 
+@FunctionalInterface
 public interface ObjectConfigurator {
 
-    void configure(Object t, ApplicationContext context);
+    void configure(final Object t, final ApplicationContext context);
 }

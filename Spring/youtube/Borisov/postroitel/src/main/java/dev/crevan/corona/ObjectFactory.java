@@ -12,8 +12,8 @@ public class ObjectFactory {
 
     private final ApplicationContext context;
 
-    private List<ObjectConfigurator> configurators = new ArrayList<>();
-    private List<ProxyConfigurator> proxyConfigurators = new ArrayList<>();
+    private final List<ObjectConfigurator> configurators = new ArrayList<>();
+    private final List<ProxyConfigurator> proxyConfigurators = new ArrayList<>();
 
     @SneakyThrows
     public ObjectFactory(final ApplicationContext context) {
@@ -28,7 +28,7 @@ public class ObjectFactory {
     }
 
     @SneakyThrows
-    public <T> T createObject(Class<T> implClass) {
+    public <T> T createObject(final Class<T> implClass) {
 
         T t = create(implClass);
         configure(t);

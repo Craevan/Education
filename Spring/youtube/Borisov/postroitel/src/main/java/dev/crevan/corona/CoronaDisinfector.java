@@ -9,7 +9,7 @@ public class CoronaDisinfector {
     @InjectByType
     private Policeman policeman;
 
-    public void start(Room room) {
+    public void start(final Room room) {
         // сообщить всем о начале дезинфекции
         announcer.announce("Начинаем дезинфекцию, все вон!");
         // разогнать всех в комнате
@@ -20,7 +20,7 @@ public class CoronaDisinfector {
         announcer.announce("Можно вернуться в комнату");
     }
 
-    private void disinfect(Room room) {
+    private void disinfect(final Room room) {
         System.out.println("зачитывается молитва 'корона изыди!' - молитва прочитана, вирус низвергнут в ад");
     }
 }

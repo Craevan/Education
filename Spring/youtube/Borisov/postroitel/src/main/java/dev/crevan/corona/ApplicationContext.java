@@ -8,17 +8,19 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ApplicationContext {
 
+    private final Map<Class, Object> cache = new ConcurrentHashMap<>();
+
+    @Getter
+    private final Config config;
+
     @Setter
     private ObjectFactory factory;
-    private Map<Class, Object> cache = new ConcurrentHashMap<>();
-    @Getter
-    private Config config;
 
     public ApplicationContext(final Config config) {
         this.config = config;
     }
 
-    public <T> T getObject(Class<T> type) {
+    public <T> T getObject(final Class<T> type) {
         if (cache.containsKey(type)) {
             return (T) cache.get(type);
         }

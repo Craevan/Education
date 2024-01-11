@@ -1,6 +1,7 @@
 package dev.crevan.corona;
 
+@FunctionalInterface
 public interface ProxyConfigurator {
 
-    Object replaceWithProxyIfNeeded(Object t, Class implClass);
+    Object replaceWithProxyIfNeeded(final Object t, final Class implClass);
 }
