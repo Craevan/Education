@@ -2,11 +2,18 @@ package dev.crevan.corona;
 
 public class CoronaDisinfector {
 
+    private Announcer announcer = new ConsoleAnnouncer();
+    private Policeman policeman = new PolicemanImpl();
+
     public void start(Room room) {
-        // todo сообщить всем о начале дезинфекции
-        // todo разогнать всех в комнате
+        // сообщить всем о начале дезинфекции
+        announcer.announce("Начинаем дезинфекцию, все вон!");
+        // разогнать всех в комнате
+        policeman.makePeopleLeaveRoom();
+        // дезинфицируем комнату
         disinfect(room);
-        // todo сообщить всем, что можно вернуться в комнату
+        // сообщить всем, что можно вернуться в комнату
+        announcer.announce("Можно вернуться в комнату");
     }
 
     private void disinfect(Room room) {
