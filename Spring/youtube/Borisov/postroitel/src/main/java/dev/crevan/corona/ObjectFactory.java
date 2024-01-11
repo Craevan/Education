@@ -2,13 +2,17 @@ package dev.crevan.corona;
 
 import lombok.SneakyThrows;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ObjectFactory {
 
     private static ObjectFactory instance;
 
-    private Config config = new JavaConfig("dev.crevan.corona");
+    private Config config;
 
     private ObjectFactory() {
+        this.config = new JavaConfig("dev.crevan.corona", new HashMap<>(Map.of(Policeman.class, PolicemanImpl.class)));
     }
 
     public static ObjectFactory getInstance() {
