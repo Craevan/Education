@@ -1,5 +1,6 @@
 package dev.crevan.corona;
 
+@Deprecated
 public class CoronaDisinfector {
 
     @InjectByType

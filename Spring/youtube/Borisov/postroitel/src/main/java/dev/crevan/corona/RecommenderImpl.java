@@ -1,6 +1,6 @@
 package dev.crevan.corona;
 
-@Deprecated
+//@Deprecated
 @Singleton
 public class RecommenderImpl implements Recommender {
 
