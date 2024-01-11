@@ -20,8 +20,8 @@
     1. Устранили нарушение open-close principle.
     2. Проблемы:
         * ```
-        ObjectFactory.getInstance().createObject(Announcer.class)
-        context.getObject(Announcer.class)
+       ObjectFactory.getInstance().createObject(Announcer.class)
+       context.getObject(Announcer.class)
         ```
           ***Это не IoC, это lookup!***
         * Невозможно нормально написать JUnit тесты
@@ -44,3 +44,8 @@
     2. Проблемы:
         * Нет возможности изменять поведение методов. Например, нет возможности логировать и уведомлять пользователя о
           вызове методов, помеченных аннотацией @Deprecated
+6. ver 0.6:
+    1. Реализовали возможность логирования использования Deprecated методов путем создания нового типа конфигуратора -
+       DeprecatedHandlerProxyConfigurator и использования Proxy Design Pattern
+    2. Проблемы:
+        * Ошибка, если Deprecated у класса без интерфейсов.
