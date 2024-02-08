@@ -1,0 +1,13 @@
+package dev.crevan.structural.bridge;
+
+public class StockExchange extends Program {
+    protected StockExchange(final Developer developer) {
+        super(developer);
+    }
+
+    @Override
+    public void developProgram() {
+        System.out.println("StockExchange development in progress");
+        developer.writeCode();
+    }
+}
