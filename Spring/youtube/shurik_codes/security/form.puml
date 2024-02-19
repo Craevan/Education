@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor User
+
+box Application
+    participant "Spring Security"
+    participant "Spring DispatcherServlet"
+end box
+
+User -> "Spring Security": <b> Get http://localhost:8080/hello.html
+"Spring Security" -> "Spring Security": Пользователь\n не аутентифицирован
+"Spring Security" -> User: <b> 302 Found\nLocation: http://localhost:8080/login\nSet-Cookie: JSESSIONID=1
+User -> "Spring Security": <b> POST http://localhost:8080/login\nContent-Type: application/x-www-form-urlencoded\nusername=username&password=password
+"Spring Security" -> "Spring Security": Аутентификация пользователя
+"Spring Security" -> User: <b> 302 Found\nLocation: http://localhost:8080/hello.html?continue\nSet-Cookie: JSESSIONID=2
+User -> "Spring Security": <b> Get http://localhost:8080/hello.html\nCookie: JSESSIONID=2
+"Spring Security" -> "Spring Security": Получение пользовательской сессии
+"Spring Security" -> "Spring DispatcherServlet": <b> Get http://localhost:8080/hello.html
+"Spring DispatcherServlet" -> "Spring Security": <b> 200 OK\nContent-Type: text/html\n<h1>Hello</h1>
+"Spring Security" -> User: <b> 200 OK\nContent-Type: text/html\n<h1>Hello</h1>
+
+@enduml
